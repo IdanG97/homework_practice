@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            font-family: 'Heebo', sans-serif;
+        }
+
+        #user_card img,
+        #comp_card img {
+            scale: 0;
+            animation-duration: 1s;
+            animation-name: popup;
+            animation-fill-mode: forwards;
+        }
+
+        .btn {
+            font-size: 1.2rem;
+            padding: 1rem 2.5rem;
+            border: none;
+            outline: none;
+            border-radius: 0.4rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            background-color: rgb(14, 14, 26);
+            color: rgb(234, 234, 234);
+            font-weight: 700;
+            transition: 0.6s;
+            box-shadow: 0px 0px 60px #1f4c65;
+            -webkit-box-reflect: below 10px linear-gradient(to bottom, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.4));
+        }
+
+        .btn:active {
+            scale: 0.92;
+        }
+
+        .btn:hover {
+            background: rgb(2, 29, 78);
+            background: linear-gradient(270deg, rgba(2, 29, 78, 0.681) 0%, rgba(31, 215, 232, 0.873) 60%);
+            color: rgb(4, 4, 38);
+        }
+
+        @keyframes popup {
+            from {
+                scale: 0;
+                transform: rotate(0deg);
+            }
+
+            to {
+                scale: 1;
+                transform: rotate(360deg);
+            }
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: #000;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        .pyro>.before,
+        .pyro>.after {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            box-shadow: -120px -218.66667px blue, 248px -16.66667px #00ff84, 190px 16.33333px #002bff, -113px -308.66667px #ff009d, -109px -287.66667px #ffb300, -50px -313.66667px #ff006e, 226px -31.66667px #ff4000, 180px -351.66667px #ff00d0, -12px -338.66667px #00f6ff, 220px -388.66667px #99ff00, -69px -27.66667px #ff0400, -111px -339.66667px #6200ff, 155px -237.66667px #00ddff, -152px -380.66667px #00ffd0, -50px -37.66667px #00ffdd, -95px -175.66667px #a6ff00, -88px 10.33333px #0d00ff, 112px -309.66667px #005eff, 69px -415.66667px #ff00a6, 168px -100.66667px #ff004c, -244px 24.33333px #ff6600, 97px -325.66667px #ff0066, -211px -182.66667px #00ffa2, 236px -126.66667px #b700ff, 140px -196.66667px #9000ff, 125px -175.66667px #00bbff, 118px -381.66667px #ff002f, 144px -111.66667px #ffae00, 36px -78.66667px #f600ff, -63px -196.66667px #c800ff, -218px -227.66667px #d4ff00, -134px -377.66667px #ea00ff, -36px -412.66667px #ff00d4, 209px -106.66667px #00fff2, 91px -278.66667px #000dff, -22px -191.66667px #9dff00, 139px -392.66667px #a6ff00, 56px -2.66667px #0099ff, -156px -276.66667px #ea00ff, -163px -233.66667px #00fffb, -238px -346.66667px #00ff73, 62px -363.66667px #0088ff, 244px -170.66667px #0062ff, 224px -142.66667px #b300ff, 141px -208.66667px #9000ff, 211px -285.66667px #ff6600, 181px -128.66667px #1e00ff, 90px -123.66667px #c800ff, 189px 70.33333px #00ffc8, -18px -383.66667px #00ff33, 100px -6.66667px #ff008c;
+            -moz-animation: 1s bang ease-out infinite backwards, 1s gravity ease-in infinite backwards, 5s position linear infinite backwards;
+            -webkit-animation: 1s bang ease-out infinite backwards, 1s gravity ease-in infinite backwards, 5s position linear infinite backwards;
+            -o-animation: 1s bang ease-out infinite backwards, 1s gravity ease-in infinite backwards, 5s position linear infinite backwards;
+            -ms-animation: 1s bang ease-out infinite backwards, 1s gravity ease-in infinite backwards, 5s position linear infinite backwards;
+            animation: 1s bang ease-out infinite backwards, 1s gravity ease-in infinite backwards, 5s position linear infinite backwards;
+        }
+
+        .pyro>.after {
+            -moz-animation-delay: 1.25s, 1.25s, 1.25s;
+            -webkit-animation-delay: 1.25s, 1.25s, 1.25s;
+            -o-animation-delay: 1.25s, 1.25s, 1.25s;
+            -ms-animation-delay: 1.25s, 1.25s, 1.25s;
+            animation-delay: 1.25s, 1.25s, 1.25s;
+            -moz-animation-duration: 1.25s, 1.25s, 6.25s;
+            -webkit-animation-duration: 1.25s, 1.25s, 6.25s;
+            -o-animation-duration: 1.25s, 1.25s, 6.25s;
+            -ms-animation-duration: 1.25s, 1.25s, 6.25s;
+            animation-duration: 1.25s, 1.25s, 6.25s;
+        }
+
+        @-webkit-keyframes bang {
+            from {
+                box-shadow: 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white;
+            }
+        }
+
+        @-moz-keyframes bang {
+            from {
+                box-shadow: 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white;
+            }
+        }
+
+        @-o-keyframes bang {
+            from {
+                box-shadow: 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white;
+            }
+        }
+
+        @-ms-keyframes bang {
+            from {
+                box-shadow: 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white;
+            }
+        }
+
+        @keyframes bang {
+            from {
+                box-shadow: 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white, 0 0 white;
+            }
+        }
+
+        @-webkit-keyframes gravity {
+            to {
+                transform: translateY(200px);
+                -moz-transform: translateY(200px);
+                -webkit-transform: translateY(200px);
+                -o-transform: translateY(200px);
+                -ms-transform: translateY(200px);
+                opacity: 0;
+            }
+        }
+
+        @-moz-keyframes gravity {
+            to {
+                transform: translateY(200px);
+                -moz-transform: translateY(200px);
+                -webkit-transform: translateY(200px);
+                -o-transform: translateY(200px);
+                -ms-transform: translateY(200px);
+                opacity: 0;
+            }
+        }
+
+        @-o-keyframes gravity {
+            to {
+                transform: translateY(200px);
+                -moz-transform: translateY(200px);
+                -webkit-transform: translateY(200px);
+                -o-transform: translateY(200px);
+                -ms-transform: translateY(200px);
+                opacity: 0;
+            }
+        }
+
+        @-ms-keyframes gravity {
+            to {
+                transform: translateY(200px);
+                -moz-transform: translateY(200px);
+                -webkit-transform: translateY(200px);
+                -o-transform: translateY(200px);
+                -ms-transform: translateY(200px);
+                opacity: 0;
+            }
+        }
+
+        @keyframes gravity {
+            to {
+                transform: translateY(200px);
+                -moz-transform: translateY(200px);
+                -webkit-transform: translateY(200px);
+                -o-transform: translateY(200px);
+                -ms-transform: translateY(200px);
+                opacity: 0;
+            }
+        }
+
+        @-webkit-keyframes position {
+
+            0%,
+            19.9% {
+                margin-top: 10%;
+                margin-left: 40%;
+            }
+
+            20%,
+            39.9% {
+                margin-top: 40%;
+                margin-left: 30%;
+            }
+
+            40%,
+            59.9% {
+                margin-top: 20%;
+                margin-left: 70%;
+            }
+
+            60%,
+            79.9% {
+                margin-top: 30%;
+                margin-left: 20%;
+            }
+
+            80%,
+            99.9% {
+                margin-top: 30%;
+                margin-left: 80%;
+            }
+        }
+
+        @-moz-keyframes position {
+
+            0%,
+            19.9% {
+                margin-top: 10%;
+                margin-left: 40%;
+            }
+
+            20%,
+            39.9% {
+                margin-top: 40%;
+                margin-left: 30%;
+            }
+
+            40%,
+            59.9% {
+                margin-top: 20%;
+                margin-left: 70%;
+            }
+
+            60%,
+            79.9% {
+                margin-top: 30%;
+                margin-left: 20%;
+            }
+
+            80%,
+            99.9% {
+                margin-top: 30%;
+                margin-left: 80%;
+            }
+        }
+
+        @-o-keyframes position {
+
+            0%,
+            19.9% {
+                margin-top: 10%;
+                margin-left: 40%;
+            }
+
+            20%,
+            39.9% {
+                margin-top: 40%;
+                margin-left: 30%;
+            }
+
+            40%,
+            59.9% {
+                margin-top: 20%;
+                margin-left: 70%;
+            }
+
+            60%,
+            79.9% {
+                margin-top: 30%;
+                margin-left: 20%;
+            }
+
+            80%,
+            99.9% {
+                margin-top: 30%;
+                margin-left: 80%;
+            }
+        }
+
+        @-ms-keyframes position {
+
+            0%,
+            19.9% {
+                margin-top: 10%;
+                margin-left: 40%;
+            }
+
+            20%,
+            39.9% {
+                margin-top: 40%;
+                margin-left: 30%;
+            }
+
+            40%,
+            59.9% {
+                margin-top: 20%;
+                margin-left: 70%;
+            }
+
+            60%,
+            79.9% {
+                margin-top: 30%;
+                margin-left: 20%;
+            }
+
+            80%,
+            99.9% {
+                margin-top: 30%;
+                margin-left: 80%;
+            }
+        }
+
+        @keyframes position {
+
+            0%,
+            19.9% {
+                margin-top: 10%;
+                margin-left: 40%;
+            }
+
+            20%,
+            39.9% {
+                margin-top: 40%;
+                margin-left: 30%;
+            }
+
+            40%,
+            59.9% {
+                margin-top: 20%;
+                margin-left: 70%;
+            }
+
+            60%,
+            79.9% {
+                margin-top: 30%;
+                margin-left: 20%;
+            }
+
+            80%,
+            99.9% {
+                margin-top: 30%;
+                margin-left: 80%;
+            }
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <script>
+        var user_wins = 0;
+        var comp_wins = 0;
+
+        function play() {
+            if (user_wins < 5 && comp_wins < 5) {
+                var user_card = Math.floor(Math.random() * 13) + 2;
+                var comp_card = Math.floor(Math.random() * 13) + 2;
+                if (user_card > comp_card) {
+                    user_wins = user_wins + 1;
+                }
+                else if (comp_card > user_card) {
+                    comp_wins = comp_wins + 1;
+                }
+                document.getElementById("user_card").innerHTML = getCard(user_card);
+                document.getElementById("comp_card").innerHTML = getCard(comp_card);
+
+                document.getElementById("user_wins").innerText = "User: " + user_wins;
+                document.getElementById("comp_wins").innerText = "Computer: " + comp_wins;
+
+                if (user_wins == 5 || comp_wins == 5) {
+                    document.getElementById("winner_message").innerText = user_wins == 5 ?  "User Won!" : "Computer Won!"
+                    document.getElementById("firework").style.display = "block";
+                }
+            }
+        }
+
+
+        function getCard(card) {
+            switch (card) {
+                case 2:
+                    return '<img width="150" height="200" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Playing_card_heart_2.svg/819px-Playing_card_heart_2.svg.png" alt="2 of hearts">';
+                case 3:
+                    return '<img width="150" height="200" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Playing_card_heart_3.svg/1638px-Playing_card_heart_3.svg.png" alt="3 of hearts">';
+                case 4:
+                    return '<img width="150" height="200" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Playing_card_heart_4.svg/1638px-Playing_card_heart_4.svg.png" alt="4 of hearts">';
+                case 5:
+                    return '<img width="150" height="200" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Playing_card_heart_5.svg/1200px-Playing_card_heart_5.svg.png" alt="5 of hearts">';
+                case 6:
+                    return '<img width="150" height="200" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Playing_card_heart_6.svg/1638px-Playing_card_heart_6.svg.png" alt="6 of hearts">';
+                case 7:
+                    return '<img width="150" height="200" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Playing_card_heart_7.svg/1200px-Playing_card_heart_7.svg.png" alt="7 of hearts">';
+                case 8:
+                    return '<img width="150" height="200" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Playing_card_heart_8.svg/1200px-Playing_card_heart_8.svg.png" alt="8 of hearts">';
+                case 9:
+                    return '<img width="150" height="200" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Playing_card_heart_9.svg/640px-Playing_card_heart_9.svg.png" alt="9 of hearts">';
+                case 10:
+                    return '<img width="150" height="200" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Playing_card_heart_10.svg/1200px-Playing_card_heart_10.svg.png" alt="10 of hearts">';
+                case 11:
+                    return '<img width="150" height="200" src="https://media.istockphoto.com/id/166089342/photo/playing-card-jack-of-hearts.jpg?s=612x612&w=0&k=20&c=zv8xAEzhI6TSgMCmhPpk5X-UA24ZNMlQg6tEUtOhc18=" alt="Jack of hearts">';
+                case 12:
+                    return '<img width="150" height="200" src="https://media.istockphoto.com/id/166089285/photo/playing-card-queen-of-hearts.jpg?s=612x612&w=0&k=20&c=8cOqfbnagVY_uhVZ1KVpL7yYe-6-bTNxQdOQwdHIe9A=" alt="Queen of hearts">';
+                case 13:
+                    return '<img width="150" height="200" src="https://i.ebayimg.com/images/g/4NoAAMXQy7hRYFML/s-l1200.jpg" alt="King of hearts">';
+                case 14:
+                    return '<img width="150" height="200" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Playing_card_heart_A.svg/1200px-Playing_card_heart_A.svg.png" alt="Ace of hearts">';
+            }
+        }
+    </script>
+    <div style="display: flex; justify-content: center; gap: 20px;">
+        <div id="user_wins" style="color: white; font-size: 25px;"></div>
+        <div id="comp_wins" style="color: white;font-size: 25px;"></div>
+    </div>
+    <br><br>
+    <div style="display: flex; justify-content: center; gap: 20px;">
+        <div id="user_card"></div>
+        <div id="comp_card"></div>
+    </div>
+    <br><br><br><br><br>
+    <div style="display: flex; justify-content: center; gap: 20px;">
+        <div style="color: white;font-size: 40px;" id="winner_message"></div>
+    </div>
+    <br><br><br>
+    <div style="position: fixed; bottom: 100px; left: 50%; margin-left: -60px;">
+        <button class="btn" onclick="play()">Play</button>
+    </div>
+    <div style="display: none;" id="firework" class="pyro">
+        <div class="before"></div>
+        <div class="after"></div>
+    </div>
+
+</body>
+
+</html>
