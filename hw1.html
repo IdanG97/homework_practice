@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var index = 0
+        var sum = 0
+        var max = 0
+        
+        while (sum < 1000) {
+            var tmp = parseInt(prompt('enter numbers until the sum is more then a 1,000'))
+
+            sum = sum + tmp
+
+            if (max < tmp) {
+                max = tmp
+            }
+
+            index++
+        }
+        document.write('number count ', index, '<br>')
+        
+        document.write(`max number ${max}`)
+        
+
+    </script>
+</body>
+
+</html>
