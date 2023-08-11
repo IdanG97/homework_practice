@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var random_num = Math.floor(Math.random() * 100) + 1;
+        var user_right = false;
+        var user_input;
+
+        while (!user_right) {
+            user_input = parseInt(prompt("Guess the number"));
+
+            user_right = (user_input == random_num);
+
+            if (!user_right) {
+                if (user_input < random_num) {
+                    alert("input was too low, try again");
+                }
+                else {
+                    alert("input was too big, try again");
+                }
+            }
+        }
+        document.write("the number was ", user_input)
+
+    </script>
+</body>
+
+</html>
